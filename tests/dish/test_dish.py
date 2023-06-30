@@ -59,7 +59,7 @@ def test_dish():
     assert other_dish.__eq__(another_dish) is False
     assert other_dish.__hash__() != another_dish.__hash__()
 
-    """Test if error is raised when price is invalid"""
+    """Test if an error is raised when price is invalid"""
     with pytest.raises(
         ValueError, match="Dish price must be greater then zero."
     ):
