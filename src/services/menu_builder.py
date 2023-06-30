@@ -6,8 +6,6 @@ from services.menu_data import MenuData
 DATA_PATH = "data/menu_base_data.csv"
 INVENTORY_PATH = "data/inventory_base_data.csv"
 
-# começando o projeto!!! #vqv
-
 
 class MenuBuilder:
     def __init__(self, data_path=DATA_PATH, inventory_path=INVENTORY_PATH):
