@@ -61,7 +61,3 @@ class Ingredient:
 
     def __repr__(self) -> str:
         return f"Ingredient('{self.name}')"
-
-
-ingredient = Ingredient("x")
-print(ingredient.__repr__())

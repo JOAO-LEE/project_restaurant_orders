@@ -39,3 +39,14 @@ class Dish:
 
     def get_ingredients(self):
         return set(self.recipe.keys())
+
+
+new_dish = Dish("Ravioli Especial de Queijo", 60.99)
+new_dish.add_ingredient_dependency(Ingredient("massa de ravioli"), 1)
+# new_dish.add_ingredient_dependency("manteiga", 1)
+# new_dish.add_ingredient_dependency("creme de leite", 1)
+# new_dish.add_ingredient_dependency("queijo mussarela", 1)
+# new_dish.add_ingredient_dependency("queijo gorgonzola", 1)
+# new_dish.add_ingredient_dependency("queijo parmesão", 1)
+# new_dish.add_ingredient_dependency("queijo provolone", 1)
+print(new_dish.get_restrictions())
