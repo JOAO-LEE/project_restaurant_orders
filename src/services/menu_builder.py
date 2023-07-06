@@ -27,17 +27,16 @@ class MenuBuilder:
     # Req 4
     def get_main_menu(self, restriction=None) -> List[Dict]:
         new_menu = list()
-        if not restriction:
-            for dish in self.menu_data.dishes:
-                if dish.name not in new_menu:
-                    new_dish = dict()
-                    new_dish["dish_name"] = dish.name
-                    new_dish["price"] = dish.name
-                    new_dish["ingredients"] = dish.get_ingredients()
-                    new_dish["restrictions"] = dish.get_restrictions()
-                    new_menu.append(new_dish)
+        for dish in list(self.menu_data.dishes):
+            if not restriction or restriction not in dish.get_restrictions():
+                new_dish = dict()
+                new_dish["dish_name"] = dish.name
+                new_dish["price"] = dish.price
+                new_dish["ingredients"] = dish.get_ingredients()
+                new_dish["restrictions"] = dish.get_restrictions()
+                new_menu.append(new_dish)
         return new_menu
 
 
 order = MenuBuilder()
-print(order.get_main_menu("LACTOSE"))
+print(order.get_main_menu())
