@@ -27,35 +27,35 @@ class InventoryMapping:
 
     # Req 5.1
     def check_recipe_availability(self, recipe: Recipe) -> bool:
+        # dish_ingredients = list(recipe.recipe)
+        # print(dish_ingredients)
         for ingredient in recipe:
-            if ingredient not in self.inventory or recipe[ingredient] > int(
-                self.inventory[ingredient]
-            ):
+            print(recipe[ingredient])
+            if ingredient not in self.inventory or int(
+                recipe[ingredient]
+            ) > int(self.inventory[ingredient]):
                 return False
-            else:
-                return True
+
+        return True
 
     # Req 5.2
-    def consume_recipe(self, recipe: Recipe) -> None:
-        is_recipe_available = self.check_recipe_availability(recipe)
-        if not is_recipe_available:
-            raise ValueError()
-
-        # for ingredient in recipe.recipe:
-        #     # print(recipe.recipe[ingredient])
-        #     self.inventory[ingredient] -= recipe.recipe[ingredient]
-
-        #     print(self.inventory[ingredient])
+    # def consume_recipe(self, recipe: Recipe) -> None:
+    #     is_recipe_available = self.check_recipe_availability(recipe)
+    #     if not is_recipe_available:
+    #         raise ValueError
+    #     for ingredient in recipe.get_ingredients():
+    #         print(ingredient)
+    #         # self.inventory[ingredient] -= int(recipe.recipe[ingredient])
 
 
-# new_inventory = InventoryMapping()
-# new_dish = Dish("lasanha de presunto", 25.90)
-# new_dish.add_ingredient_dependency(Ingredient("queijo mussarela"), 15)
-# new_dish.add_ingredient_dependency(Ingredient("tomate"), 10)
-# new_dish.add_ingredient_dependency(Ingredient("farinha de trigo"), 10)
-# new_dish.add_ingredient_dependency(Ingredient("sal"), 5)
-# new_dish.add_ingredient_dependency(Ingredient("água"), 10)
-# new_dish.add_ingredient_dependency(Ingredient("presunto"), 15)
-# # # print(new_dish.get_ingredients())
-# # print(new_inventory.check_recipe_availability(new_dish))
-# new_inventory.consume_recipe(new_dish)
+new_inventory = InventoryMapping()
+new_dish = Dish("lasanha de presunto", 25.90)
+new_dish.add_ingredient_dependency(Ingredient("queijo mussarela"), 15)
+new_dish.add_ingredient_dependency(Ingredient("tomate"), 10)
+new_dish.add_ingredient_dependency(Ingredient("farinha de trigo"), 10)
+new_dish.add_ingredient_dependency(Ingredient("sal"), 5)
+new_dish.add_ingredient_dependency(Ingredient("água"), 10)
+new_dish.add_ingredient_dependency(Ingredient("presunto"), 15)
+# # print(new_dish.get_ingredients())
+# print(new_inventory.check_recipe_availability(new_dish))
+print(new_inventory.check_recipe_availability(new_dish.recipe))
