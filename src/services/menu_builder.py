@@ -27,7 +27,13 @@ class MenuBuilder:
     # Req 4
     def get_main_menu(self, restriction=None) -> List[Dict]:
         new_menu = list()
+
         for dish in self.menu_data.dishes:
+            is_recipe_available = self.inventory.check_recipe_availability(
+                dish.recipe
+            )
+            if not is_recipe_available:
+                return new_menu
             if not restriction or restriction not in dish.get_restrictions():
                 new_dish = dict()
                 new_dish["dish_name"] = dish.name
@@ -36,3 +42,7 @@ class MenuBuilder:
                 new_dish["restrictions"] = dish.get_restrictions()
                 new_menu.append(new_dish)
         return new_menu
+
+
+new_menu = MenuBuilder()
+new_menu.get_main_menu()
