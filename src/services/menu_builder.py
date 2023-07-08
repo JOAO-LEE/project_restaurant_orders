@@ -42,7 +42,3 @@ class MenuBuilder:
                 new_dish["restrictions"] = dish.get_restrictions()
                 new_menu.append(new_dish)
         return new_menu
-
-
-new_menu = MenuBuilder()
-new_menu.get_main_menu()
