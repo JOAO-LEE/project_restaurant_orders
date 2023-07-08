@@ -28,7 +28,3 @@ class MenuData:
                 return set(self.new_dish.values())
         except FileNotFoundError:
             raise FileNotFoundError()
-
-
-# new_menu = MenuData("data/menu_base_data.csv")
-# print(new_menu.dishes)

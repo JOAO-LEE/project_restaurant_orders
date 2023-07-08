@@ -27,8 +27,6 @@ class InventoryMapping:
 
     # Req 5.1
     def check_recipe_availability(self, recipe: Recipe) -> bool:
-        # dish_ingredients = list(recipe.recipe)
-        # print(dish_ingredients)
         for ingredient in recipe:
             print(recipe[ingredient])
             if ingredient not in self.inventory or int(
@@ -45,16 +43,3 @@ class InventoryMapping:
             raise ValueError
         for ingredient in recipe:
             self.inventory[ingredient] -= int(recipe[ingredient])
-
-
-new_inventory = InventoryMapping()
-new_dish = Dish("lasanha de presunto", 25.90)
-new_dish.add_ingredient_dependency(Ingredient("queijo mussarela"), 15)
-new_dish.add_ingredient_dependency(Ingredient("tomate"), 10)
-new_dish.add_ingredient_dependency(Ingredient("farinha de trigo"), 10)
-new_dish.add_ingredient_dependency(Ingredient("sal"), 5)
-new_dish.add_ingredient_dependency(Ingredient("água"), 10)
-new_dish.add_ingredient_dependency(Ingredient("presunto"), 15)
-# # print(new_dish.get_ingredients())
-# print(new_inventory.check_recipe_availability(new_dish))
-print(new_inventory.check_recipe_availability(new_dish.recipe))

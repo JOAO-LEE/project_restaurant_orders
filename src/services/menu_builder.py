@@ -36,7 +36,3 @@ class MenuBuilder:
                 new_dish["restrictions"] = dish.get_restrictions()
                 new_menu.append(new_dish)
         return new_menu
-
-
-order = MenuBuilder()
-print(order.get_main_menu())
