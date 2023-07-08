@@ -39,13 +39,12 @@ class InventoryMapping:
         return True
 
     # Req 5.2
-    # def consume_recipe(self, recipe: Recipe) -> None:
-    #     is_recipe_available = self.check_recipe_availability(recipe)
-    #     if not is_recipe_available:
-    #         raise ValueError
-    #     for ingredient in recipe.get_ingredients():
-    #         print(ingredient)
-    #         # self.inventory[ingredient] -= int(recipe.recipe[ingredient])
+    def consume_recipe(self, recipe: Recipe) -> None:
+        is_recipe_available = self.check_recipe_availability(recipe)
+        if not is_recipe_available:
+            raise ValueError
+        for ingredient in recipe:
+            self.inventory[ingredient] -= int(recipe[ingredient])
 
 
 new_inventory = InventoryMapping()
